@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1051944570631",
+    "project_id": "imagecast-3ccc2",
+    "storage_bucket": "imagecast-3ccc2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1051944570631:android:a327e981f4c93875553fa2",
+        "android_client_info": {
+          "package_name": "com.yanytskyi.dima.imagecast"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1051944570631-2gvrbc6vmguif171llrvhtgibs81feq8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeP6H7t44KmEM4FVPSvsCXjvNz-6N2aN4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1051944570631-2gvrbc6vmguif171llrvhtgibs81feq8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
