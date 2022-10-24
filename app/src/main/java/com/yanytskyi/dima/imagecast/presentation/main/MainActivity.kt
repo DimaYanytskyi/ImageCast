@@ -2,7 +2,6 @@ package com.yanytskyi.dima.imagecast.presentation.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.tabs.TabLayoutMediator
 import com.yanytskyi.dima.imagecast.databinding.ActivityMainBinding
 import com.yanytskyi.dima.imagecast.presentation.cast.CastFragment
 import com.yanytskyi.dima.imagecast.presentation.image_picker.ImagePickerFragment

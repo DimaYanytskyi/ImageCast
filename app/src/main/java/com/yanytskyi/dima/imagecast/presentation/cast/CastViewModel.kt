@@ -1,5 +1,6 @@
 package com.yanytskyi.dima.imagecast.presentation.cast
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -11,19 +12,21 @@ import com.yanytskyi.dima.imagecast.domain.interactor.IImageInteractor
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@SuppressLint("StaticFieldLeak")
 @HiltViewModel
 class CastViewModel @Inject constructor(
-    private val imageInteractor: IImageInteractor
+    private val imageInteractor: IImageInteractor,
+    @ApplicationContext val context: Context
 ) : ViewModel() {
 
     private val _image = MutableStateFlow(CastState())
-    val image: StateFlow<CastState> = _image
+    val image = _image.asStateFlow()
 
-    fun getImage(context: Context) {
+    fun getImage() {
         viewModelScope.launch {
             imageInteractor.fetchImage().collect { result ->
                 when(result) {
@@ -40,7 +43,10 @@ class CastViewModel @Inject constructor(
                         _image.value = CastState(image = bitmap)
                     }
                     is ResultWrapper.Error -> {
-                        _image.value = CastState(message = result.message ?: "An unexpected error was occurred")
+                        _image.value = CastState(
+                            message = result.message ?: "An unexpected error was occurred",
+                            image = BitmapFactory.decodeResource(context.resources, R.drawable.no_image)
+                        )
                     }
                 }
             }
