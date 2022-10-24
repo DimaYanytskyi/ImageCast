@@ -1,16 +1,15 @@
 package com.yanytskyi.dima.imagecast.presentation.main
 
-import android.annotation.SuppressLint
 import android.os.Bundle
-import android.provider.Settings
-import android.util.Log
-import androidx.fragment.app.FragmentActivity
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.tabs.TabLayoutMediator
 import com.yanytskyi.dima.imagecast.databinding.ActivityMainBinding
+import com.yanytskyi.dima.imagecast.presentation.cast.CastFragment
+import com.yanytskyi.dima.imagecast.presentation.image_picker.ImagePickerFragment
 import dagger.hilt.android.AndroidEntryPoint
-import java.security.AccessController.getContext
 
 @AndroidEntryPoint
-class MainActivity : FragmentActivity() {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
@@ -19,10 +18,12 @@ class MainActivity : FragmentActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val tabAdapter = TabAdapter(
-            this,
-            2
+        val fragments = listOf(
+            ImagePickerFragment(),
+            CastFragment()
         )
+        val tabAdapter = TabAdapter(supportFragmentManager, fragments, listOf("Image Picker", "Cast Image"))
         binding.viewPager.adapter = tabAdapter
+        binding.tabLayout.setupWithViewPager(binding.viewPager)
     }
 }

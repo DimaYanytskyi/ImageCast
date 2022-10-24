@@ -19,7 +19,7 @@ class ImagePickerViewModel @Inject constructor(
     fun saveImage(path: String, bitmap: Bitmap) {
         viewModelScope.launch {
             val image = Image(
-                path.subSequence(6, path.length).toString(),
+                path,
                 imagePath,
                 bitmap
             )

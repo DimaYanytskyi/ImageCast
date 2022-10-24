@@ -1,7 +1,6 @@
 package com.yanytskyi.dima.imagecast.presentation.cast
 
 import android.annotation.SuppressLint
-import android.graphics.BitmapFactory
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
@@ -23,7 +22,11 @@ class CastFragment : Fragment(R.layout.fragment_cast) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentCastBinding.bind(view)
+    }
 
+    override fun onStart() {
+        super.onStart()
+        viewModel.getImage(requireContext())
         lifecycleScope.launch {
             viewModel.image.collect {
                 binding.progressBar.visibility = if(it.loading) View.VISIBLE else View.GONE

@@ -1,15 +1,10 @@
 package com.yanytskyi.dima.imagecast.presentation.image_picker
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.app.Activity.RESULT_OK
 import android.content.Intent
-import android.database.Cursor
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.net.Uri
 import android.os.Bundle
-import android.provider.MediaStore
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -17,9 +12,7 @@ import androidx.fragment.app.viewModels
 import com.yanytskyi.dima.imagecast.R
 import com.yanytskyi.dima.imagecast.databinding.FragmentImagePickerBinding
 import dagger.hilt.android.AndroidEntryPoint
-import org.checkerframework.checker.units.qual.s
 import java.io.FileNotFoundException
-
 
 @AndroidEntryPoint
 class ImagePickerFragment : Fragment(R.layout.fragment_image_picker) {
@@ -46,7 +39,7 @@ class ImagePickerFragment : Fragment(R.layout.fragment_image_picker) {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
             IMAGE_PICKER_SELECT -> {
                 if (resultCode == RESULT_OK) {
@@ -67,8 +60,6 @@ class ImagePickerFragment : Fragment(R.layout.fragment_image_picker) {
                     }
                 }
             }
-
         }
-
     }
 }

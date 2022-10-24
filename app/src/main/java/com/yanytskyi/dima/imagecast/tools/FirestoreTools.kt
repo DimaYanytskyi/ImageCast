@@ -1,6 +1,5 @@
 package com.yanytskyi.dima.imagecast.tools
 
-import android.content.Context
 import com.google.firebase.firestore.DocumentSnapshot
 import com.yanytskyi.dima.imagecast.domain.model.Image
 
